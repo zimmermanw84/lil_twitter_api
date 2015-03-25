@@ -28,7 +28,7 @@ class TweetsController < ApplicationController
   end
 
   def search
-    p @tweets = Tweet.where(user_handle: params[:search])
+    @tweets = Tweet.where(user_handle: params[:search])
 
     render json: @tweets
   end
