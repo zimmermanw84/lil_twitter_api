@@ -27,6 +27,12 @@ class TweetsController < ApplicationController
     end
   end
 
+  def search
+    p @tweets = Tweet.where(user_handle: params[:search])
+
+    render json: @tweets
+  end
+
   # PATCH/PUT /tweets/1
   # PATCH/PUT /tweets/1.json
   def update
@@ -54,6 +60,6 @@ class TweetsController < ApplicationController
     end
 
     def tweet_params
-      params.require(:tweet).permit(:content)
+      params.require(:tweet).permit(:content, :user_handle)
     end
 end

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  get 'tweets/search', to: 'tweets#search'
   resources :tweets, except: [:new, :edit]
+
+
+  match '*p', to: 'application#handle_options_request', :via => [:options]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
