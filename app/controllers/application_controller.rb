@@ -1,3 +1,4 @@
+
 class ApplicationController < ActionController::API
   def handle_options_request
     headers['Access-Control-Allow-Origin'] = '*'

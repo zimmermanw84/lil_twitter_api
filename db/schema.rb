@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20150324171209) do
     t.text     "content"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.text     "user_handle"  null: false
+    t.text     "user_handle"
   end
 
 end
