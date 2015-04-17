@@ -6,7 +6,7 @@ class TweetsController < ApplicationController
   def index
     @tweets = Tweet.all
 
-    render json: @tweets
+    render json:  @tweets
   end
 
   # GET /tweets/1
@@ -18,7 +18,7 @@ class TweetsController < ApplicationController
   # POST /tweets
   # POST /tweets.json
   def create
-    @tweet = Tweet.new(tweet_params)
+    @tweet = Tweet.new(user_handle: params[:user_handle], content: params[:content])
 
     if @tweet.save
       render json: @tweet, status: :created, location: @tweet
@@ -60,6 +60,6 @@ class TweetsController < ApplicationController
     end
 
     def tweet_params
-      params.require(:tweet).permit(:content, :user_handle)
+      # params.require(:tweet).permit(:content, :user_handle)
     end
 end
